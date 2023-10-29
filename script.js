@@ -29,53 +29,67 @@ document.addEventListener('keydown', function (e) {
     closeModal();
   }
 });
+
 ////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////
 
-// Selecting elements
-console.log(document.documentElement);
-const header = document.querySelector('.header');
-const allSection = document.querySelectorAll('.section');
-console.log(allSection);
+// // Selecting elements
+// console.log(document.documentElement);
+// const header = document.querySelector('.header');
+// const allSection = document.querySelectorAll('.section');
+// console.log(allSection);
 
-document.getElementById('section--1');
-const allButtons = document.getElementsByTagName('button');
-console.log(allButtons);
+// document.getElementById('section--1');
+// const allButtons = document.getElementsByTagName('button');
+// console.log(allButtons);
 
-console.log(document.getElementsByClassName('btn'));
+// console.log(document.getElementsByClassName('btn'));
 
-// Creating and inserting elements
-//Element.insertAdjacentHTML()
+// // Creating and inserting elements
+// //Element.insertAdjacentHTML()
 
-const message = document.createElement('div');
-message.classList.add('cookie-message');
-message.innerHTML =
-  'We use cookies for improved functionality and analytics <button class="btn btn--close-cookie">Got it!</button>';
-header.prepend(message);
-// header.append(message.cloneNode(true));
-// header.insertAdjacentElement('afterbegin', message);
-// header.insertAdjacentElement('beforeend', message);
+// const message = document.createElement('div');
+// message.classList.add('cookie-message');
+// message.innerHTML =
+//   'We use cookies for improved functionality and analytics <button class="btn btn--close-cookie">Got it!</button>';
+// header.prepend(message);
+// // header.append(message.cloneNode(true));
+// // header.insertAdjacentElement('afterbegin', message);
+// // header.insertAdjacentElement('beforeend', message);
 
-// Delete elements
-document
-  .querySelector('.btn--close-cookie')
-  .addEventListener('click', function () {
-    message.remove();
-  });
+// // Delete elements
+// document
+//   .querySelector('.btn--close-cookie')
+//   .addEventListener('click', function () {
+//     message.remove();
+//   });
 
-// Styles
-message.style.backgroundColor = '#37383d';
-message.style.width = '120%';
+// // Styles
+// message.style.backgroundColor = '#37383d';
+// message.style.width = '120%';
 
-console.log(getComputedStyle(message).color);
-message.style.height =
-  Number.parseFloat(getComputedStyle(message).height) + 30 + 'px';
+// console.log(getComputedStyle(message).color);
+// message.style.height =
+//   Number.parseFloat(getComputedStyle(message).height) + 30 + 'px';
 
-document.documentElement.style.setProperty('--color-primary', 'orangered');
+// document.documentElement.style.setProperty('--color-primary', 'orangered');
 
-// Attributes
-const logo = document.querySelector('.nav__logo');
-console.log(logo.alt);
-logo.alt = 'Logo';
+// // Attributes
+// const logo = document.querySelector('.nav__logo');
+// console.log(logo.alt);
+// logo.alt = 'Logo';
+// Smooth scroll
+const btnScrollTo = document.querySelector('.btn--scroll-to');
+const section1 = document.querySelector('#section--1');
+
+btnScrollTo.addEventListener('click', function (e) {
+  const s1coords = section1.getBoundingClientRect();
+  // window.scrollTo({
+  //   left: s1coords.left + window.pageXOffset,
+  //   top: s1coords.top + window.pageYOffset,
+  //   behavior: 'smooth',
+  // });
+  section1.scrollIntoView({ behavior: 'smooth' });
+});
